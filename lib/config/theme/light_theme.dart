@@ -5,7 +5,7 @@ import '../../core/constants/colors.dart';
 ThemeData lightTheme = ThemeData(
   primaryColor: Colors.blue,
   brightness: Brightness.light,
-  scaffoldBackgroundColor: grey900,
+
   // ✅ Define your color scheme
   colorScheme: const ColorScheme.light(
     primary: Colors.blue,           // main brand color
@@ -17,10 +17,6 @@ ThemeData lightTheme = ThemeData(
     onBackground: Colors.white,
     onSurface: Colors.black,
   ),
-  appBarTheme: const AppBarTheme(
-    backgroundColor: grey950,
-    foregroundColor: Colors.white,
-    elevation: 0,
-  ),
+
   useMaterial3: true,
 );

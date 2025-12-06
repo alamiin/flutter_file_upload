@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_file_upload/features/login/presentation/provider/LoginProvider.dart';
 
 import 'config/route/app_route.dart';
 import 'config/theme/light_theme.dart';
 import 'features/login/presentation/pages/login_screen.dart';
 import 'package:flutter_file_upload/di_container.dart' as di;
+import 'package:provider/provider.dart';
 
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await di.init();
-  runApp(const MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (context) => di.sl<LoginProvider>()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
