@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_file_upload/features/login/presentation/pages/login_screen.dart';
 
+import '../../features/dashboard/presentation/pages/dashboard_page.dart';
 
-
-//01405529145
 class AppRoute{
   static const String defaultRoute = "/";
-  static const String userDetailsRoute = "/DashBoardScreen";
+  static const String dashboardRoute = "/DashBoardScreen";
 
   static Route onGenerateRoutes(RouteSettings settings) {
     switch (settings.name) {
       case defaultRoute:
         return _materialRoute(const LoginScreen());
+        case dashboardRoute:
+        return _materialRoute(const DashboardPage());
       default:
         return _materialRoute(const LoginScreen());
     }

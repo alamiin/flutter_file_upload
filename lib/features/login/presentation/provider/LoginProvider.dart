@@ -27,7 +27,7 @@ class LoginProvider with ChangeNotifier{
     notifyListeners();
   }
 
-  void loginUser(String username, String password) async {
+  void loginUser(String username, String password, VoidCallback onSuccess) async {
 
     updateLoader(true);
      Map<String, dynamic> params = {
@@ -38,9 +38,10 @@ class LoginProvider with ChangeNotifier{
     final dataState = await loginUseCase(params: params);
     switch(dataState){
       case DataSuccess():{
-        var accessToken = dataState.data!.accessToken;
-        await sharedPreferences.setString(accessToken,  accessToken);
+        var accessTokenValue = dataState.data!.accessToken;
+        await sharedPreferences.setString(accessToken,  accessTokenValue);
         updateLoader(false);
+        onSuccess();
       }
       case DataFailed():{
         error = dataState.error!.message;

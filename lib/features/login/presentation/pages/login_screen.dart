@@ -2,6 +2,7 @@
 // File: lib/features/login/presentation/pages/login_screen.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import '../../../../config/route/app_route.dart';
 import '../provider/LoginProvider.dart';
 import '../widget/error_widget.dart';
 import '../widget/inputDecoration.dart';
@@ -104,6 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     provider.loginUser(
                                       _emailCtrl.text.trim(),
                                       _passCtrl.text.trim(),
+                                        (){
+                                          Navigator.of(context).pushReplacementNamed(AppRoute.dashboardRoute);
+                                        }
                                     );
                                   },
                                   child: const Text(

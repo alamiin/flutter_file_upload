@@ -3,6 +3,7 @@ import 'package:flutter_file_upload/features/login/presentation/provider/LoginPr
 
 import 'config/route/app_route.dart';
 import 'config/theme/light_theme.dart';
+import 'features/dashboard/presentation/provider/dashboard_provider.dart';
 import 'features/login/presentation/pages/login_screen.dart';
 import 'package:flutter_file_upload/di_container.dart' as di;
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ Future<void> main() async {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => di.sl<LoginProvider>()),
+      ChangeNotifierProvider(create: (context) => di.sl<DashboardProvider>()),
     ],
     child: MyApp(),
   ));
